@@ -1,0 +1,66 @@
+cabal-version:      3.0
+name:               servant-lucid-login
+version:            0.0.0.1
+author:             Isaac Hiram Lopez Diaz
+maintainer:         isaac.lopez@upr.edu
+category:           Web
+build-type:         Simple
+
+common warnings
+    ghc-options: -Wall
+
+executable servant-lucid-login
+    main-is:          Main.hs
+    build-depends:    base >= 4.9.0.0 && < 4.21.0.0
+                    , servant-lucid-login
+    hs-source-dirs:   app
+    default-language: Haskell2010
+
+library
+    import:           warnings
+    exposed-modules:  
+        Server
+    other-modules:
+        App
+        Types
+        Db
+        Db.User
+        Db.OTP
+        Types
+        Types.Username
+        Types.OTP
+        Types.Email
+        Types.Id
+        Types.PasswordHash
+        Pages
+        Pages.Base
+        Pages.Login
+        Pages.OTP
+        Telnyx.Service
+    default-extensions:
+        OverloadedStrings
+        DeriveGeneric
+        ImportQualifiedPost
+    build-depends:    base >= 4.9.0.0 && < 4.21.0.0
+                    , servant
+                    , servant-server
+                    , servant-lucid
+                    , servant-multipart
+                    , lucid
+                    , mtl
+                    , monad-time
+                    , transformers
+                    , text
+                    , bytestring
+                    , wai
+                    , warp
+                    , http-api-data
+                    , crypton
+                    , aeson
+                    , yaml
+                    , postgresql-simple 
+                    , resource-pool
+                    , time
+                    , http-conduit
+    hs-source-dirs:   src
+    default-language: Haskell2010
